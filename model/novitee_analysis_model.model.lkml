@@ -1,7 +1,7 @@
 connection: "@{novitee_analysis_bq_cnn}"
 
 include: "/views/*.view.lkml"                # include all views in the views/ folder in this project
-# include: "/views/*/*.view.lkml"                # include all views in the views/ folder in this project
+include: "/views/*/*.view.lkml"                # include all views in the views/ folder in this project
 # include: "/**/*.view.lkml"                 # include all views in this project
 # include: "my_dashboard.dashboard.lookml"   # include a LookML dashboard called my_dashboard
 
@@ -17,7 +17,7 @@ explore: purchase_order {
     sql_on: IFNULL(CAST(${purchase_order.po_number} AS STRING), "") = IFNULL(CAST(${purchase_order_previous_30days.po_number} AS STRING), "") AND
             IFNULL(CAST(${purchase_order.outlet_code} AS STRING), "") = IFNULL(CAST(${purchase_order_previous_30days.outlet_code} AS STRING), "") AND
             IFNULL(CAST(${purchase_order.outlet_name} AS STRING), "") = IFNULL(CAST(${purchase_order_previous_30days.outlet_name} AS STRING), "") AND
-            IFNULL(CAST(${purchase_order.order_date}} AS STRING), "") = IFNULL(CAST(${purchase_order_previous_30days.order_date} AS STRING), "") AND
+            IFNULL(CAST(${purchase_order.order_date} AS STRING), "") = IFNULL(CAST(${purchase_order_previous_30days.order_date} AS STRING), "") AND
             IFNULL(CAST(${purchase_order.updated_date} AS STRING), "") = IFNULL(CAST(${purchase_order_previous_30days.updated_date} AS STRING), "") AND
             IFNULL(CAST(${purchase_order.order_remarks} AS STRING), "") = IFNULL(CAST(${purchase_order_previous_30days.order_remarks} AS STRING), "") AND
             IFNULL(CAST(${purchase_order.stock_code} AS STRING), "") = IFNULL(CAST(${purchase_order_previous_30days.stock_code} AS STRING), "") AND
@@ -62,4 +62,4 @@ explore: purchase_order {
   }
 }
 
-# explore: eval_model {}
+explore: eval_model {}
