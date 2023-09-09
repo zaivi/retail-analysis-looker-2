@@ -1,5 +1,5 @@
 view: inventory {
-  sql_table_name: `int-demo-looker.notivee.inventory` ;;
+  sql_table_name: `glife-data-science.novitee_analysis.inventory` ;;
 
   dimension: code {
     type: string
