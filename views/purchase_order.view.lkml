@@ -103,4 +103,5 @@ view: purchase_order {
     type: count
     drill_fields: [supplier_name, outlet_name, stock_name]
   }
+
 }

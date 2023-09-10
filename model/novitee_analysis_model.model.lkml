@@ -63,3 +63,5 @@ explore: purchase_order {
 }
 
 explore: eval_model {}
+
+explore: v_cal_po_total_latest {}
