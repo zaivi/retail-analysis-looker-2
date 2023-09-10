@@ -39,14 +39,11 @@ view: v_cal_po_total_latest {
     html:
     <div class="arrow-container">
     {% if change_per_po_number._value > 0 %}
-    <span>{{rendered_value}} </span> <br> <!-- Mũi tên lên -->
-    <font style="font-size: 16px;"> Sale Orders </font> <font color="#00FF00" style="font-size: 16px;"><font color="#00FF00"> &#9650;</font> <i>+{{ change_per_po_number._value }}%</i></font>
+    <div>{{rendered_value}} </div> <!-- Mũi tên lên -->
     {% elsif change_per_po_number._value ==0 %}
-    <span>{{rendered_value}}</span> <br>
-    <font style="font-size: 16px;"> Sale Orders </font> <font color="#9B4D48" style="font-size: 16px;"><i>{{ change_per_po_number._value }}%</i></font>
+    <div>{{rendered_value}}</div>
     {% elsif change_per_po_number._value < 0%}
-    <span>{{rendered_value}} </span> <br> <!-- Mũi tên xuống -->
-    <font style="font-size: 16px;"> Sale Orders </font> <font color="#9B4D48" style="font-size: 16px;"><font color="#9B4D48">&#9660;</font> <i>{{ change_per_po_number._value }}%</i></font>
+    <div>{{rendered_value}} </div> <!-- Mũi tên xuống -->
     {% endif %}
     </div>
     <style>
@@ -69,14 +66,11 @@ view: v_cal_po_total_latest {
     html:
     <div class="arrow-container">
     {% if change_per_grand_total._value > 0 %}
-    <span>$ {{rendered_value}} </span> <br> <!-- Mũi tên lên -->
-    <font style="font-size: 16px;"> Fulfillment Cost </font> <font color="#00FF00" style="font-size: 16px;"><font color="#00FF00"> &#9650;</font><i>+{{ change_per_grand_total._value }}%</i></font>
+    <div>$ {{rendered_value}} </div> <!-- Mũi tên lên -->
     {% elsif change_per_grand_total._value ==0 %}
-    <span>$ {{rendered_value}}</span> <br>
-    <font style="font-size: 16px;"> Fulfillment Cost </font> <font color="#9B4D48" style="font-size: 16px;"><i>{{ change_per_grand_total._value }}%</i></font>
+    <div>$ {{rendered_value}}</div>
     {% elsif change_per_grand_total._value < 0%}
-    <span>$ {{rendered_value}}</span> <br> <!-- Mũi tên xuống -->
-    <font style="font-size: 16px;"> Fulfillment Cost </font> <font color="#9B4D48" style="font-size: 16px;"><font color="#9B4D48">&#9660;</font><i>{{ change_per_grand_total._value }}%</i></font>
+    <div>$ {{rendered_value}}</div> <!-- Mũi tên xuống -->
     {% endif %}
     </div>
     <style>
@@ -91,7 +85,7 @@ view: v_cal_po_total_latest {
 
     html:
     <div class="arrow-container">
-    <font color="#54B9EF">$ {{rendered_value}} </font> <br> <!-- Mũi tên lên -->
+    <font color="#F7A526">$ {{rendered_value}} </font> <br> <!-- Mũi tên lên -->
     <style>
     </div>
     .arrow-container {
@@ -106,14 +100,11 @@ view: v_cal_po_total_latest {
     html:
     <div class="arrow-container">
     {% if change_per_order_qty._value > 0 %}
-    <span> {{rendered_value}} </span> <br> <!-- Mũi tên lên -->
-    <font style="font-size: 16px;"> Sale Order Quantity </font> <font color="#00FF00" style="font-size: 16px;"><font color="#00FF00"> &#9650;</font><i>+{{ abs_change_per_order_qty._value }}%</i></font>
+    <div> {{rendered_value}} </div> <!-- Mũi tên lên -->
     {% elsif change_per_order_qty._value ==0 %}
-    <span> {{rendered_value}}</span> <br>
-    <font style="font-size: 16px;"> Sale Order Quantity </font> <font color="#9B4D48" style="font-size: 16px;"><i>{{ abs_change_per_order_qty._value }}%</i></font>
+    <div> {{rendered_value}}</div>
     {% elsif change_per_order_qty._value < 0%}
-    <span> {{rendered_value}}</span> <br> <!-- Mũi tên xuống -->
-    <font style="font-size: 16px;"> Sale Order Quantity </font> <font color="#9B4D48" style="font-size: 16px;"><font color="#9B4D48">&#9660;</font><i>{{ abs_change_per_order_qty._value }}%</i></font>
+    <div> {{rendered_value}}</div> <!-- Mũi tên xuống -->
     {% endif %}
     </div>
     <style>

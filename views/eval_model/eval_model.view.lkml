@@ -26,6 +26,27 @@ view: eval_model {
     sql: ${TABLE}.model_name ;;
   }
 
+  dimension: aic {
+    label: "AIC (Akaike Information Criterion)"
+    description: ""
+    type: number
+    sql: ${TABLE}.aic ;;
+  }
+
+  dimension: variance {
+    label: "Variance"
+    description: ""
+    type: number
+    sql: ${TABLE}.variance ;;
+  }
+
+  dimension: log_likelihood {
+    label: "Log Likelihood"
+    description: ""
+    type: number
+    sql: ${TABLE}.log_likelihood ;;
+  }
+
   dimension: rmse {
     label: "Root Mean Squared Error"
     description: ""
