@@ -11,6 +11,13 @@ include: "/views/*/*.view.lkml"                # include all views in the views/
 explore: inventory {}
 
 explore: purchase_order {
+  join: inventory_stock_mart {
+    relationship: one_to_many
+    type: left_outer
+    sql_on: ${inventory_stock_mart.code} = ${purchase_order.stock_code}  AND
+            ${inventory_stock_mart.name} = ${purchase_order.stock_name} AND
+            ${inventory_stock_mart.trans_start_month_date} = ${purchase_order.order_date};;
+  }
   join: purchase_order_previous_30days {
     relationship: one_to_many
     type: full_outer

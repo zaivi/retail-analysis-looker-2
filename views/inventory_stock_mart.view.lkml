@@ -29,6 +29,14 @@ view: inventory_stock_mart {
     type: number
     sql: ${TABLE}.stock_out ;;
   }
+  dimension: ratio {
+    type: number
+    sql: ${TABLE}.ratio ;;
+  }
+  dimension: avg_stock {
+    type: number
+    sql: ${TABLE}.avg_stock ;;
+  }
   dimension_group: trans_start_month {
     type: time
     timeframes: [raw, date, week, month, quarter, year]
@@ -40,4 +48,5 @@ view: inventory_stock_mart {
     type: count
     drill_fields: [name]
   }
+
 }
