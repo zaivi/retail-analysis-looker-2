@@ -1,9 +1,33 @@
 view: inventory_stock_mart {
-  sql_table_name: `glife-data-science.novitee_analysis.inventory_stock_mart` ;;
+  derived_table: {
+    sql:
+      SELECT * FROM `glife-data-science.novitee_analysis.inventory_stock_mart`
+      WHERE {% condition outlet_name_filter%} outletName {% endcondition %}
+      AND {% condition stock_name_filter%} name {% endcondition %}
+      ;;
+  }
+
+  filter: outlet_name_filter {
+    type: string
+    suggest_explore: purchase_order
+    suggest_dimension: outlet_name
+  }
+
+  filter: stock_name_filter {
+    type: string
+    suggest_explore: purchase_order
+    suggest_dimension: name
+  }
+
+  # sql_table_name: `glife-data-science.novitee_analysis.inventory_stock_mart` ;;
 
   dimension: code {
     type: string
     sql: ${TABLE}.code ;;
+  }
+  dimension: outlet_name {
+    type: string
+    sql: ${TABLE}.outletName ;;
   }
   dimension: grand_total {
     type: number
@@ -37,12 +61,12 @@ view: inventory_stock_mart {
     type: number
     sql: ${TABLE}.avg_stock ;;
   }
-  dimension_group: trans_start_month {
+  dimension_group: trans_start_date {
     type: time
     timeframes: [raw, date, week, month, quarter, year]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.transStartMonth ;;
+    sql: ${TABLE}.transStartDate ;;
   }
   measure: count {
     type: count

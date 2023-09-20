@@ -1,6 +1,18 @@
 view: purchase_order {
   sql_table_name: `glife-data-science.novitee_analysis.purchase_order_deduplicate` ;;
 
+  filter: outlet_name_filter {
+    type: string
+    suggest_explore: purchase_order
+    suggest_dimension: outlet_name
+  }
+
+  filter: stock_name_filter {
+    type: string
+    suggest_explore: purchase_order
+    suggest_dimension: stock_name
+  }
+
   dimension_group: order {
     type: time
     timeframes: [raw, date, week, month, quarter, year]

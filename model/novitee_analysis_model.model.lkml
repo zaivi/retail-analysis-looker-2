@@ -16,7 +16,7 @@ explore: purchase_order {
     type: left_outer
     sql_on: ${inventory_stock_mart.code} = ${purchase_order.stock_code}  AND
             ${inventory_stock_mart.name} = ${purchase_order.stock_name} AND
-            ${inventory_stock_mart.trans_start_month_date} = ${purchase_order.order_date};;
+            ${inventory_stock_mart.trans_start_date_date} = ${purchase_order.order_date};;
   }
   join: purchase_order_previous_30days {
     relationship: one_to_many
@@ -72,3 +72,5 @@ explore: purchase_order {
 explore: eval_model {}
 
 explore: v_cal_po_total_latest {}
+
+explore: inventory_stock_mart {}
