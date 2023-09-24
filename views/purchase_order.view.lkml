@@ -1,5 +1,14 @@
 view: purchase_order {
-  sql_table_name: `glife-data-science.novitee_analysis.purchase_order_deduplicate` ;;
+  # sql_table_name: `glife-data-science.novitee_analysis.purchase_order_deduplicate` ;;
+
+  derived_table: {
+    sql:
+      SELECT * FROM `glife-data-science.novitee_analysis.purchase_order_deduplicate`
+      WHERE {% condition outlet_name_filter%} outletName {% endcondition %}
+      AND {% condition stock_name_filter%} stockName {% endcondition %}
+      AND {% condition order_date_filter%} creationDate {% endcondition %}
+      ;;
+  }
 
   filter: outlet_name_filter {
     type: string
@@ -11,6 +20,13 @@ view: purchase_order {
     type: string
     suggest_explore: purchase_order
     suggest_dimension: stock_name
+  }
+
+  filter: order_date_filter {
+    type: date
+    datatype: date
+    suggest_explore: purchase_order
+    suggest_dimension: order_date
   }
 
   dimension_group: order {
