@@ -1,7 +1,7 @@
 view: inventory_stock_mart {
   derived_table: {
     sql:
-      SELECT * FROM `glife-data-science.novitee_analysis.inventory_stock_mart`
+      SELECT *, 5 as const_ratio FROM `glife-data-science.novitee_analysis.inventory_stock_mart`
       WHERE {% condition outlet_name_filter%} outletName {% endcondition %}
       AND {% condition stock_name_filter%} name {% endcondition %}
       ;;
@@ -21,6 +21,10 @@ view: inventory_stock_mart {
 
   # sql_table_name: `glife-data-science.novitee_analysis.inventory_stock_mart` ;;
 
+  dimension: const_ratio {
+    type: number
+    sql: ${TABLE}.const_ratio ;;
+  }
   dimension: code {
     type: string
     sql: ${TABLE}.code ;;

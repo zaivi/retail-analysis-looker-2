@@ -67,6 +67,15 @@ explore: purchase_order {
             IFNULL(CAST(${purchase_order.total_tax} AS STRING), "") = IFNULL(CAST(${purchase_order_train.total_tax} AS STRING), "") AND
             IFNULL(CAST(${purchase_order.grand_total} AS STRING), "") = IFNULL(CAST(${purchase_order_train.grand_total} AS STRING), "") ;;
   }
+
+  join: purchase_order_previous_30days_updated {
+    relationship: one_to_many
+    type: full_outer
+    sql_on:
+            IFNULL(CAST(${purchase_order.stock_name} AS STRING), "") = IFNULL(CAST(${purchase_order_previous_30days_updated.stock_name} AS STRING), "") AND
+            IFNULL(CAST(${purchase_order.outlet_name} AS STRING), "") = IFNULL(CAST(${purchase_order_previous_30days_updated.outlet_name} AS STRING), "") AND
+            IFNULL(CAST(${purchase_order.order_date} AS STRING), "") = IFNULL(CAST(${purchase_order_previous_30days_updated.order_date} AS STRING), "");;
+  }
 }
 
 explore: eval_model {}
