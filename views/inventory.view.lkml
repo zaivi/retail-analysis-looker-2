@@ -39,10 +39,12 @@ view: inventory {
   dimension: stock_in {
     type: number
     sql: ${TABLE}.stockIn ;;
+    value_format: "0"
   }
   dimension: stock_out {
     type: number
     sql: ${TABLE}.stockOut ;;
+    value_format: "0"
   }
   dimension_group: transaction {
     type: time
