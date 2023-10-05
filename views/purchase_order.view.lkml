@@ -74,7 +74,7 @@ view: purchase_order {
     sql: ${TABLE}.purchaseUOM ;;
   }
   dimension: receiving_qty {
-    type: string
+    type: number
     sql: ${TABLE}.receivingQty ;;
   }
   dimension: receiving_uom {
