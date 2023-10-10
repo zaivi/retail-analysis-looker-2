@@ -8,6 +8,11 @@ view: purchase_order_amount_forecast {
   datatype: date
   sql: ${TABLE}.creationDate ;;
  }
+
+dimension: forecast_type {
+    type: string
+    sql: ${TABLE}.time_series_type ;;
+  }
   measure: purchase_order_amount{
     type: sum
     sql: ${TABLE}.grandTotal ;;

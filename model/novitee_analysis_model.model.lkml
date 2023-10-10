@@ -83,3 +83,11 @@ explore: eval_model {}
 explore: v_cal_po_total_latest {}
 
 explore: inventory_stock_mart {}
+
+explore: purchase_order_amount_forecast {}
+
+explore: purchase_order_amount_forecast_l3m {}
+
+explore: purchase_order_number_forecast {}
+
+explore: purchase_order_number_forecast_l3m {}
